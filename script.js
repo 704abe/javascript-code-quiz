@@ -4,6 +4,46 @@ const quizBox = document.getElementById("quizBox");
 const scoreScrn = document.getElementById("scoreboard");
 var timeLeft = document.getElementById("timeSec");
 
+
+let questions = [
+    {
+        number: 1,
+        question: "Commonly used data types DO NOT include:",
+        answer: "alerts",
+        option1: "strings",
+        option2: "booleans",
+        option3: "alerts",
+        option4: "numbers"
+    },
+    {
+        number: 2,
+        question: "The condition in an if/else statement is enclosed within ____.",
+        answer: "parenthesis",
+        option1: "quotes",
+        option2: "curly brackets",
+        option3: "parenthesis",
+        option4: "square brackets"
+    },
+    {
+        number: 3,
+        question: "Arrays in Javascript can be used to store ____.",
+        answer: "all of the above",
+        option1: "numbers and strings",
+        option2: "other arrays",
+        option3: "booleans",
+        option4: "all of the above"
+    },
+    {
+        number: 4,
+        question: "Which of these variable types can be redeclared?",
+        answer: "var",
+        option1: "var",
+        option2: "const",
+        option3: "let",
+        option4: "all of the above"
+    }
+];
+
 startBtn.addEventListener('click', startFunc);
 
 function startFunc(){
@@ -11,6 +51,7 @@ function startFunc(){
     startScrn.classList.add("none");
     quizBox.classList.remove("none");
     startTimer();
+    showQuestions(0);
 }
 
 function startTimer(){
@@ -23,4 +64,17 @@ function startTimer(){
             timeLeft.innerHTML = sec;
         }
     }, 1000);
+}
+
+function showQuestions(index){
+    const quesTitle = document.getElementById("quesTitle");
+    const option1 = document.getElementById("option-1");
+    const option2 = document.getElementById("option-2");
+    const option3 = document.getElementById("option-3");
+    const option4 = document.getElementById("option-4");
+    quesTitle.textContent = questions[index].question;
+    option1.textContent = questions[index].option1;
+    option2.textContent = questions[index].option2;
+    option3.textContent = questions[index].option3;
+    option4.textContent = questions[index].option4;
 }
