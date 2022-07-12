@@ -1,0 +1,315 @@
+
+*{
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+body{
+    background-color: azure;
+}
+
+.header{
+    position: relative;
+    height: 150px;
+}
+
+#topLeft{
+    padding: 10px;
+}
+
+#viewScores{
+    background-color: white;
+    color: lightblue;
+    border: 1px solid lightskyblue;
+    border-radius: 5px;
+    padding: 5px 10px 5px 10px;
+}
+
+#viewScores:hover{
+    background-color: lightblue;
+    color: white;
+    border: 1px solid white;
+}
+
+#viewScores:active{
+    background-color: white;
+    color: lightblue;
+    border: 1px solid lightblue;
+}
+
+.header .h1{
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    height: 50px;
+}
+
+h1{
+    color: lightblue;
+    text-shadow: 0px 5px 2px white, 0px 2px 2px grey;
+}
+
+.button{
+    /* padding: 200px 100px 200px 100px; */
+    height: 500px;
+
+    display: flex;
+    justify-content: center;
+    background-color: lightblue;
+    /* display: none; */
+}
+
+.button .start{
+    position: absolute;
+    font-size: 50px;
+    border: none;
+    padding: 25px 50px 25px 50px;
+    top: 350px;
+    border-radius: 10px;
+    color: white;
+    background-color: silver;
+    /* box-shadow: 0px 5px 10px grey, 0px 5px 50px white; */
+    /* text-shadow: 0px 5px 10px grey, 0px 5px 50px white; */
+}
+
+.button .start:hover{
+    /* color: lightblue;
+    background-color: white; */
+    font-size: 55px;
+    box-shadow: 0px 5px 10px grey, 0px 5px 50px white;
+    text-shadow: 0px 5px 10px grey, 0px 5px 50px white;
+}
+
+.button .start:focus{
+    color: lightblue;
+    background-color: white;
+    box-shadow: 0px 5px 10px grey, 0px 5px 50px white;
+}
+
+.none{
+    display: none;
+}
+
+.block{
+    display: block;
+}
+
+.quizBox{
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 500px;
+    width: 500px;
+    background-color: lightblue;
+    border-radius: 50px;
+    text-align: left;
+    box-shadow: 0px 5px 10px grey;
+}
+
+.quizHeader{
+    height: 20%;
+    margin-top: 10px;
+    border: 10px;
+    border-color: black;
+    color: aliceblue;
+    /* background-color: aquamarine; */
+    /* text-shadow: 0px 2px 2px grey; */
+    display: flex;
+    align-items: center;
+}
+
+#quesTitle{
+    margin-left: 40px;
+}
+
+.quizBody{
+    height: 60%;
+    background-color: white;
+    display: block;
+}
+
+.optionList{
+    color:aliceblue;
+    display: block;
+    padding-top: 10px;
+}
+
+.option{
+    margin-left: 40px;
+    margin-right: 40px;
+    padding: 10px 0;
+}
+
+.option span{
+    background: aliceblue;
+    color: lightskyblue;
+    text-shadow: 0px 1px 1px white, 0px 1px 1px grey;
+    border: 1px solid lightskyblue;
+    border-radius: 5px;
+    padding: 10px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 24px;
+}
+
+.option span:hover{
+    color: white;
+    background-color: lightskyblue;
+    border-color: aliceblue;
+    transition: all .2s;
+}
+
+.quizFooter{
+    height: 90px;
+    display: block;
+    /* background-color: wheat; */
+    text-shadow: 0px 2px 2px grey;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#timer{
+    /* margin-left: 40px; */
+    /* padding: 40px 0; */
+    color: lightblue;
+    text-align: center;
+    font-size: 24px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 5px 10px 5px 10px;
+    text-shadow: 0px 1px 0px lightskyblue;
+}
+
+#next{
+    background-color: white;
+    color: lightblue;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px 10px 20px;
+    font-size: 24px;
+    text-shadow: 0px 1px 0px lightskyblue;
+}
+
+.endScrn{
+    /* background-color: white; */
+    text-align: center;
+    color: lightblue;
+    text-shadow: 0px 2px 0px white, 0px 2px 2px lightskyblue;
+    font-size: 36px;
+    padding: 100px;
+}
+
+#yourScore{
+    padding-top: 40px;
+}
+
+#score{
+    margin-top: 40px;
+}
+
+.scoreForm{
+    padding-top: 40px;
+}
+
+#userName{
+    padding: 5px 10px 5px 10px;
+    border: 1px solid lightblue;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 24px;
+    margin-top: 20px;
+}
+
+#userName:hover{
+    padding: 5px 10px 5px 10px;
+    border: 1px solid blue;
+    border-radius: 5px;
+    text-align: center;
+}
+
+#userName:active{
+    padding: 5px 10px 5px 10px;
+    border: 1px solid lightblue;
+    border-radius: 5px;
+    text-align: center;
+}
+
+#userName:focus::placeholder{
+    color: transparent;
+}
+
+.endBtns{
+    padding-top: 50px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#restart, #exit{
+    background-color: white;
+    color: lightblue;
+    border: 1px solid lightskyblue;
+    border-radius: 5px;
+    padding: 10px 20px 10px 20px;
+    font-size: 24px;
+}
+
+#restart:hover, #exit:hover{
+    background-color: lightblue;
+    color: white;
+    border: 1px solid white;
+}
+
+#restart:active, #exit:active{
+    color: lightblue;
+    background-color: white;
+    border-color: lightblue;
+}
+
+.scoreboard{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 100px;
+}
+
+#scoreTitle{
+    color: lightblue;
+    text-shadow: 0px 2px 0px white, 0px 2px 2px lightskyblue;
+    font-size: 36px;
+}
+
+#scoreBody{
+    color: lightblue;
+    text-shadow: 0px 2px 0px white, 0px 2px 2px lightskyblue;
+    font-size: 24px;
+}
+
+#scoreFooter{
+    padding-top: 50px;
+}
+
+#scoreExit{
+    background-color: white;
+    color: lightblue;
+    border: 1px solid lightskyblue;
+    border-radius: 5px;
+    padding: 10px 20px 10px 20px;
+    font-size: 24px;
+}
+
+#scoreExit:hover, #scoreExit:hover{
+    background-color: lightblue;
+    color: white;
+    border: 1px solid white;
+}
+
+#scoreExit:active, #scoreExit:active{
+    color: lightblue;
+    background-color: white;
+    border-color: lightblue;
+}

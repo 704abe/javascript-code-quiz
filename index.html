@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Javascript Code Quiz</title>
+    <link rel="stylesheet" href="./style.css">
+  </head>
+
+  <body>
+    <header class="header">
+        <div id="topLeft">
+            <button id="viewScores">View Highscores</button>
+        </div>
+        <div class="h1">
+            <h1>Javascript Code Quiz</h1>
+        </div>
+    </header>
+
+    <main>
+        <div class="button" id="startScrn">
+            <button class="start" id="startBtn">Start</button>
+        </div>
+        <div class="quizBox none" id="quizBox">
+            <div class="quizHeader">
+                <h2 id="quesTitle">Question 1</h2>
+            </div>
+            <div class="quizBody">
+                <div class="optionList">
+                    <div class="option">
+                        <span>Option 1</span>
+                    </div>
+                    <div class="option">
+                        <span>Option 2</span>
+                    </div>
+                    <div class="option">
+                        <span>Option 3</span>
+                    </div>
+                    <div class="option">
+                        <span>Option 4</span>
+                    </div>
+                </div>
+            </div>
+            <footer class="quizFooter">
+                <div id="timer">
+                    <div id="timeLeft">Time Left:</div>
+                    <div id="timeSec">15</div>
+                </div>
+                <button id="next"> Next</button>
+            </footer>
+        </div>
+        <div class="endScrn none">
+            <div class="endBody">
+                <div id="endMsg">You have completed the Quiz!</div>
+                <div id="yourScore">Your Score:</div>
+                <div id="score">100</div>
+                <form action="" class="scoreForm"></form>
+                    <label for="userName">Your Name:</label><br>
+                    <input type="text" id="userName" name="name" placeholder="Name...">
+            </div>
+            <div class="endFooter">
+                <div class="endBtns">
+                    <button id="restart">Restart</button>
+                    <button id="exit">Exit</button>
+                </div>
+            </div>
+        </div>
+        <div class="none" id="scoreboard">
+            <div id="scoreHeader">
+                <div id="scoreTitle">Highscores</div>
+            </div>
+            <div id="scoreBody">
+
+            </div>
+            <footer id="scoreFooter">
+                <br>
+                <button id="scoreExit">Exit</button>
+            </footer>
+        </div>
+    </main>
+	<script src="script.js"></script>
+  </body>
+</html>
