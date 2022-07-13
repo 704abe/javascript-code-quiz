@@ -3,7 +3,11 @@ const startScrn = document.getElementById("startScrn");
 const quizBox = document.getElementById("quizBox");
 const scoreScrn = document.getElementById("scoreboard");
 var timeLeft = document.getElementById("timeSec");
-
+const outtaTime = document.getElementById("outtaTime");
+const restart1 = document.getElementById("outtaRestart");
+const restart2 = document.getElementById("restart");
+const next = document.getElementById("next");
+var index;
 
 let questions = [
     {
@@ -45,9 +49,11 @@ let questions = [
 ];
 
 startBtn.addEventListener('click', startFunc);
+restart1.addEventListener('click', startOver);
+restart2.addEventListener('click', startOver);
+next.addEventListener('click', nextQues);
 
 function startFunc(){
-    startBtn.classList.add("none");
     startScrn.classList.add("none");
     quizBox.classList.remove("none");
     startTimer();
@@ -59,11 +65,27 @@ function startTimer(){
     setInterval(()=>{
         if (sec == 0){
             clearInterval(timer);
+            noTime();
+            return;
         } else {
             sec--;
             timeLeft.innerHTML = sec;
         }
     }, 1000);
+}
+
+function noTime(){
+    outtaTime.classList.remove("none");
+    quizBox.classList.add("none");
+}
+
+function startOver(){
+    location.reload();
+}
+
+function nextQues(){
+    index++;
+    showQuestions(index);
 }
 
 function showQuestions(index){
@@ -78,3 +100,7 @@ function showQuestions(index){
     option3.textContent = questions[index].option3;
     option4.textContent = questions[index].option4;
 }
+
+// var chosenAnswer;
+
+// if (chosenAnswer

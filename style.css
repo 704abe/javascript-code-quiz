@@ -53,7 +53,6 @@ h1{
 .button{
     /* padding: 200px 100px 200px 100px; */
     height: 500px;
-
     display: flex;
     justify-content: center;
     background-color: lightblue;
@@ -97,7 +96,7 @@ h1{
 
 .quizBox{
     position: absolute;
-    top: 55%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     height: 500px;
@@ -162,6 +161,22 @@ h1{
     transition: all .2s;
 }
 
+.option span:active{
+    color: aliceblue;
+    background-color: white;
+    border-color: lightskyblue;
+}
+
+.correct{
+    background-color:lightgreen;
+    color: white;
+}
+
+.wrong{
+    background-color:lightcoral;
+    color: white;
+}
+
 .quizFooter{
     height: 90px;
     display: block;
@@ -195,11 +210,56 @@ h1{
     text-shadow: 0px 1px 0px lightskyblue;
 }
 
+#next:hover{
+    background-color: lightblue;
+    color: white;
+    border: 1px solid white;
+}
+
+#next:active{
+    color: lightblue;
+    background-color: white;
+    border-color: lightblue;
+}
+
+.outtaTime{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 500px;
+    width: 500px;
+    background-color: lightblue;
+    text-align: center;
+    color: white;
+    text-shadow: 0px 2px 0px lightskyblue, 0px 2px 5px black;
+    font-size: 36px;
+    border-radius: 50px;
+}
+
+.outtaBody{
+    padding-top: 100px;
+}
+
+.outtaBtns{
+    display: flex;
+    justify-content: space-around;
+}
+
+#outtaRestart{
+    box-shadow: 0px 2px 5px grey, 0px 2px 5px white;
+}
+
+#gottaBe{
+    padding-top: 25px;
+    padding-bottom: 40px;
+}
+
 .endScrn{
     /* background-color: white; */
     text-align: center;
     color: lightblue;
-    text-shadow: 0px 2px 0px white, 0px 2px 2px lightskyblue;
+    text-shadow: 0px 2px 0px white, 0px 2px 10px lightskyblue;
     font-size: 36px;
     padding: 100px;
 }
@@ -249,7 +309,7 @@ h1{
     justify-content: space-evenly;
 }
 
-#restart, #exit{
+.restart, .exit{
     background-color: white;
     color: lightblue;
     border: 1px solid lightskyblue;
@@ -258,13 +318,13 @@ h1{
     font-size: 24px;
 }
 
-#restart:hover, #exit:hover{
+.restart:hover, .exit:hover{
     background-color: lightblue;
     color: white;
     border: 1px solid white;
 }
 
-#restart:active, #exit:active{
+.restart:active, .exit:active{
     color: lightblue;
     background-color: white;
     border-color: lightblue;
