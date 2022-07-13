@@ -8,6 +8,7 @@ const restart1 = document.getElementById("outtaRestart");
 const restart2 = document.getElementById("restart");
 const next = document.getElementById("next");
 var index;
+var addOne = 0;
 
 let questions = [
     {
@@ -84,8 +85,9 @@ function startOver(){
 }
 
 function nextQues(){
-    index++;
-    showQuestions(index);
+    console.log("hello");
+    addOne++;
+    showQuestions(addOne);
 }
 
 function showQuestions(index){
