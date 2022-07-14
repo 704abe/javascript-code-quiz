@@ -38,4 +38,4 @@ THEN I can save my initials and my score
 
 Deployed site: https://704abe.github.io/javascript-code-quiz/
 
-GitHub repository: 
+GitHub repository: https://github.com/704abe/javascript-code-quiz
