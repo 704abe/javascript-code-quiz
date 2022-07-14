@@ -66,7 +66,8 @@
                 <div id="score">100</div>
                 <form action="" class="scoreForm"></form>
                     <label for="userName">Your Name:</label><br>
-                    <input type="text" id="userName" name="name" placeholder="Name...">
+                    <input type="text" id="userName" name="userName" placeholder="username">
+                    <button type="submit" class="exit" id="submit" onclick="saveScore(event)">Submit</button>
             </div>
             <div class="endFooter">
                 <div class="endBtns">
@@ -80,7 +81,7 @@
                 <div id="scoreTitle">Highscores</div>
             </div>
             <div id="scoreBody">
-
+                <ul id="scoreList"></ul>
             </div>
             <footer id="scoreFooter">
                 <br>

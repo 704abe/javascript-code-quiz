@@ -5,8 +5,9 @@ const scoreScrn = document.getElementById("scoreboard");
 const viewScores = document.getElementById("viewScores");
 const outtaTime = document.getElementById("outtaTime");
 const endScrn = document.getElementById("endScrn");
-const restart1 = document.getElementById("outtaRestart");
-const restart2 = document.getElementById("exit");
+const outtaRestart = document.getElementById("outtaRestart");
+const exit = document.getElementById("exit");
+const scoreRestart = document.getElementById("scoreExit");
 const next = document.getElementById("next");
 const optionList = document.querySelector("optionList");
 const option1 = document.getElementById("option-1");
@@ -14,12 +15,15 @@ const option2 = document.getElementById("option-2");
 const option3 = document.getElementById("option-3");
 const option4 = document.getElementById("option-4");
 const score = document.getElementById("score");
+const userName = document.getElementById("userName");
+const submit = document.getElementById("submit");
 var timeLeft = document.getElementById("timeSec");
 var addOne = 0;
 var timer;
 let globalIndex = 0;
 var points = 0;
 var sec = 15;
+// const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
 
 let questions = [
     {
@@ -62,8 +66,9 @@ let questions = [
 
 viewScores.addEventListener('click', scoreBoard);
 startBtn.addEventListener('click', startFunc);
-restart1.addEventListener('click', startOver);
-restart2.addEventListener('click', startOver);
+outtaRestart.addEventListener('click', startOver);
+exit.addEventListener('click', startOver);
+scoreRestart.addEventListener('click', startOver);
 next.addEventListener('click', nextQues);
 
 function startFunc(){
@@ -77,7 +82,9 @@ function startFunc(){
 
 function endFunc(){
     clearInterval(timer);
-    score.textContent = points + sec;
+    finalScore = points + sec;
+    score.textContent = finalScore;
+    localStorage.setItem("newScore", JSON.stringify(finalScore));
     quizBox.classList.add("none");
     endScrn.classList.remove("none");
 }
@@ -160,10 +167,43 @@ function showQuestions(index){
 }
 
 function scoreBoard(){
+    const scoreList = document.getElementById("scoreList");
+    const scores = JSON.parse(localStorage.getItem("highScores")) || [];
+    console.log(scores);
+    scoreList.innerHTML = scores.map(score => {
+        return `<li class="scoreLi">${score.name}-${score.score}</li>`;
+    }).join("")
     startScrn.classList.add("none");
     quizBox.classList.add("none");
     outtaTime.classList.add("none");
     endScrn.classList.add("none");
     viewScores.classList.add("none");
     scoreScrn.classList.remove("none");
+}
+
+userName.addEventListener("keyup", ()=>{
+    submit.disabled = !userName.value;
+});
+
+function saveScore(event){
+    event.preventDefault();
+    const mostRecentScore = localStorage.getItem("newScore");
+    const userScore = {
+        score: mostRecentScore,
+        name: userName.value
+    }
+    const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+    highScores.push(userScore);
+    console.log(highScores);
+
+    endScrn.classList.add("none");
+    scoreScrn.classList.remove("none");
+
+    highScores.sort((a,b)=>{
+        return b.score - a.score;
+    })
+    highScores.splice(5);
+    console.log(highScores);
+    localStorage.setItem("highScores", JSON.stringify(highScores));
+
 }
