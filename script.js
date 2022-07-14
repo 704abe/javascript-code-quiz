@@ -1,3 +1,4 @@
+// Variables 
 const startBtn = document.getElementById("startBtn");
 const startScrn = document.getElementById("startScrn");
 const quizBox = document.getElementById("quizBox");
@@ -63,6 +64,7 @@ let questions = [
     }
 ];
 
+// Event Listeners
 viewScores.addEventListener('click', scoreBoard);
 startBtn.addEventListener('click', startFunc);
 outtaRestart.addEventListener('click', startOver);
@@ -70,6 +72,9 @@ exit.addEventListener('click', startOver);
 scoreRestart.addEventListener('click', startOver);
 next.addEventListener('click', nextQues);
 
+// Functions
+
+// Transitions from start screen to quiz box
 function startFunc(){
     next.classList.add("none");
     viewScores.classList.add("none");
@@ -79,33 +84,37 @@ function startFunc(){
     showQuestions(0);
 }
 
+// Transitions from quiz box to completion screen
 function endFunc(){
-    clearInterval(timer);
-    finalScore = points + sec;
-    score.textContent = finalScore;
-    localStorage.setItem("newScore", JSON.stringify(finalScore));
-    quizBox.classList.add("none");
-    endScrn.classList.remove("none");
+    clearInterval(timer); // stops timer
+    finalScore = points + sec; // tallies up final score
+    score.textContent = finalScore; // prints final score to webpage
+    localStorage.setItem("newScore", JSON.stringify(finalScore)); // saves final score to local storage
+    quizBox.classList.add("none"); // 'display: none' added to quiz box
+    endScrn.classList.remove("none"); // 'display: none' removed from end screen
 }
 
+// starts timer countdown
 function startTimer(){
     timer = setInterval(()=>{
         if (sec <= 0){
             clearInterval(timer);
-            noTime();
+            noTime(); // calls function for out-of-time screen when timer runs out
             return;
         } else {
             sec--;
-            timeLeft.innerHTML = sec;
+            timeLeft.innerHTML = sec; // prints current time to screen
         }
     }, 1000);
 }
 
+ // out-of-time screen
 function noTime(){
-    outtaTime.classList.remove("none");
-    quizBox.classList.add("none");
+    quizBox.classList.add("none"); // 'display: none' add to quiz box
+    outtaTime.classList.remove("none"); // 'display: none' removed from out-of-time screen
 }
 
+// determines whether selected answer is the correct answer, adjusts timer accordingly, and indicates a wrong/right answer
 function chooseAnswer(choice, choiceText){
     let choiceUser = choiceText;
     let choiceCorrect = questions[globalIndex].answer
@@ -126,15 +135,17 @@ function chooseAnswer(choice, choiceText){
         console.log("wrong");
         sec -= 5;
     }
-    next.classList.remove("none");
+    next.classList.remove("none"); // 'display: none' removed from 'next' button
 }
 
+// reloads the page upon restart/exit
 function startOver(){
     location.reload();
 }
 
+// called when 'next' button is pressed, updates questions and answers for nthe next question
 function nextQues(){
-    next.classList.add("none");
+    next.classList.add("none"); // 'display: none' added to 'next' button
     resetChoices();
     addOne++;
     globalIndex++;
@@ -145,6 +156,7 @@ function nextQues(){
     showQuestions(addOne);
 }
 
+// removes wrong/right indicators from previous screen
 function resetChoices(){
     option1.classList.remove("correct", "wrong","noSelect");
     option2.classList.remove("correct", "wrong","noSelect");
@@ -152,6 +164,7 @@ function resetChoices(){
     option4.classList.remove("correct", "wrong","noSelect");
 }
 
+// shows different questions/answers based on index
 function showQuestions(index){
     const quesTitle = document.getElementById("quesTitle");
     const option1 = document.getElementById("option-1");
@@ -165,6 +178,7 @@ function showQuestions(index){
     option4.textContent = questions[index].option4;
 }
 
+// presents high score list and updates it based on local storage
 function scoreBoard(){
     const scoreList = document.getElementById("scoreList");
     const scores = JSON.parse(localStorage.getItem("highScores")) || [];
@@ -180,6 +194,7 @@ function scoreBoard(){
     scoreScrn.classList.remove("none");
 }
 
+// saves username and score upon 'submit' button press
 function saveScore(event){
     event.preventDefault();
     const mostRecentScore = localStorage.getItem("newScore");
@@ -188,14 +203,14 @@ function saveScore(event){
         name: userName.value
     }
     const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
-    highScores.push(userScore);
+    highScores.push(userScore); // adds most recent score to 'highScores' array
     console.log(highScores);
 
-    highScores.sort((a,b)=>{
+    highScores.sort((a,b)=>{ // sorts 'highScores' in descending order
         return b.score - a.score;
     })
-    highScores.splice(5);
+    highScores.splice(5); // cuts off scores that are not higher than the current top 5
     console.log(highScores);
     localStorage.setItem("highScores", JSON.stringify(highScores));
-    scoreBoard();
+    scoreBoard(); // transitions to high score list
 }

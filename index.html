@@ -9,39 +9,42 @@
   </head>
 
   <body>
+    <!-- Header -->
     <header class="header">
-        <div id="topLeft">
+        <nav id="topLeft">
             <button id="viewScores">View Highscores</button>
-        </div>
+        </nav>
         <div class="h1">
             <h1>Javascript Code Quiz</h1>
         </div>
     </header>
-
+<!-- Content Section -->
     <main>
-        <div class="button" id="startScrn">
+        <!-- Start Screen -->
+        <section class="button" id="startScrn">
             <button class="start" id="startBtn">Start</button>
-        </div>
-        <div class="quizBox none" id="quizBox">
-            <div class="quizHeader">
+        </section>
+        <!-- Quiz Box -->
+        <section class="quizBox none" id="quizBox">
+            <header class="quizHeader">
                 <h2 id="quesTitle"></h2>
-            </div>
-            <div class="quizBody">
-                <div class="optionList">
-                    <div class="option">
+            </header>
+            <section class="quizBody">
+                <ul class="optionList">
+                    <li class="option">
                         <span id="option-1" onclick="chooseAnswer(this, this.textContent)"></span>
-                    </div>
-                    <div class="option">
+                    </li>
+                    <li class="option">
                         <span id="option-2" onclick="chooseAnswer(this, this.textContent)"></span>
-                    </div>
-                    <div class="option">
+                    </li>
+                    <li class="option">
                         <span id="option-3" onclick="chooseAnswer(this, this.textContent)"></span>
-                    </div>
-                    <div class="option">
+                    </li>
+                    <li class="option">
                         <span id="option-4" onclick="chooseAnswer(this, this.textContent)"></span>
-                    </div>
-                </div>
-            </div>
+                    </li>
+                </ul>
+            </section>
             <footer class="quizFooter">
                 <div id="timer">
                     <div id="timeLeft">Time Left:</div>
@@ -49,44 +52,47 @@
                 </div>
                 <button id="next"> Next</button>
             </footer>
-        </div>
-        <div class="outtaTime none" id="outtaTime">
+        </section>
+        <!-- Out of Time Screen -->
+        <section class="outtaTime none" id="outtaTime">
             <section class="outtaBody">
-                <div id="youRan">You ran out of time :(</div>
-                <div id="gottaBe">Gotta be quicker than that!</div>
+                <p id="youRan">You ran out of time :(</p>
+                <p id="gottaBe">Gotta be quicker than that!</p>
                 <div class="outtaBtns">
                     <button class="restart" id="outtaRestart">Restart</button>
                 </div>
             </section>
-        </div>
-        <div class="endScrn none" id="endScrn" >
-            <div class="endBody">
-                <div id="endMsg">You have completed the Quiz!</div>
-                <div id="yourScore">Your Score:</div>
-                <div id="score">100</div>
+        </section>
+        <!-- Quiz Completion Screen -->
+        <section class="endScrn none" id="endScrn" >
+            <section class="endBody">
+                <p id="endMsg">You have completed the Quiz!</p>
+                <p id="yourScore">Your Score:</p>
+                <p id="score">100</p>
                 <form action="" class="scoreForm"></form>
                     <label for="userName">Your Name:</label><br>
                     <input type="text" id="userName" name="userName" placeholder="username">
                     <button type="submit" class="exit" id="submit" onclick="saveScore(event)">Submit</button>
-            </div>
-            <div class="endFooter">
+            </section>
+            <footer class="endFooter">
                 <div class="endBtns">
                     <button class="exit" id="exit">Exit</button>
                 </div>
-            </div>
-        </div>
-        <div class="none" id="scoreboard">
-            <div id="scoreHeader">
+            </footer>
+        </section>
+        <!-- High Score List -->
+        <section class="none" id="scoreboard">
+            <header id="scoreHeader">
                 <div id="scoreTitle">Highscores</div>
-            </div>
-            <div id="scoreBody">
+            </header>
+            <section id="scoreBody">
                 <ul id="scoreList"></ul>
-            </div>
+            </section>
             <footer id="scoreFooter">
                 <br>
                 <button id="scoreExit">Exit</button>
             </footer>
-        </div>
+        </section>
     </main>
 	<script src="script.js"></script>
   </body>
