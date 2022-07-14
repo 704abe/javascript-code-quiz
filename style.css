@@ -364,7 +364,7 @@ h1{
 
 #scoreList{
     list-style: none;
-    padding: 100px 50px 0px 50px;
+    padding: 50px 50px 0px 50px;
 }
 
 .scoreLi{
@@ -373,7 +373,7 @@ h1{
 }
 
 #scoreFooter{
-    padding-top: 50px;
+    padding-top: 25px;
 }
 
 #scoreExit{

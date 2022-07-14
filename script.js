@@ -171,7 +171,7 @@ function scoreBoard(){
     const scores = JSON.parse(localStorage.getItem("highScores")) || [];
     console.log(scores);
     scoreList.innerHTML = scores.map(score => {
-        return `<li class="scoreLi">${score.name}-${score.score}</li>`;
+        return `<li class="scoreLi">${score.name} - ${score.score}</li>`;
     }).join("")
     startScrn.classList.add("none");
     quizBox.classList.add("none");
@@ -180,10 +180,6 @@ function scoreBoard(){
     viewScores.classList.add("none");
     scoreScrn.classList.remove("none");
 }
-
-userName.addEventListener("keyup", ()=>{
-    submit.disabled = !userName.value;
-});
 
 function saveScore(event){
     event.preventDefault();
@@ -196,8 +192,8 @@ function saveScore(event){
     highScores.push(userScore);
     console.log(highScores);
 
-    endScrn.classList.add("none");
-    scoreScrn.classList.remove("none");
+    // endScrn.classList.add("none");
+    // scoreScrn.classList.remove("none");
 
     highScores.sort((a,b)=>{
         return b.score - a.score;
@@ -205,5 +201,5 @@ function saveScore(event){
     highScores.splice(5);
     console.log(highScores);
     localStorage.setItem("highScores", JSON.stringify(highScores));
-
+    scoreBoard();
 }
