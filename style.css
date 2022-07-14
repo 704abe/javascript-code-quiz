@@ -167,14 +167,18 @@ h1{
     border-color: lightskyblue;
 }
 
-.correct{
+.option .correct{
     background-color:lightgreen;
     color: white;
 }
 
-.wrong{
+.option .wrong{
     background-color:lightcoral;
     color: white;
+}
+
+.noSelect{
+    pointer-events: none;
 }
 
 .quizFooter{
@@ -259,7 +263,7 @@ h1{
     /* background-color: white; */
     text-align: center;
     color: lightblue;
-    text-shadow: 0px 2px 0px white, 0px 2px 10px lightskyblue;
+    text-shadow: 0px 2px 0px white;
     font-size: 36px;
     padding: 100px;
 }
@@ -282,7 +286,7 @@ h1{
     border-radius: 5px;
     text-align: center;
     font-size: 24px;
-    margin-top: 20px;
+    margin-top: 40px;
 }
 
 #userName:hover{

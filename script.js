@@ -2,13 +2,23 @@ const startBtn = document.getElementById("startBtn");
 const startScrn = document.getElementById("startScrn");
 const quizBox = document.getElementById("quizBox");
 const scoreScrn = document.getElementById("scoreboard");
-var timeLeft = document.getElementById("timeSec");
+const viewScores = document.getElementById("viewScores");
 const outtaTime = document.getElementById("outtaTime");
+const endScrn = document.getElementById("endScrn");
 const restart1 = document.getElementById("outtaRestart");
-const restart2 = document.getElementById("restart");
+const restart2 = document.getElementById("exit");
 const next = document.getElementById("next");
-var index;
+const optionList = document.querySelector("optionList");
+const option1 = document.getElementById("option-1");
+const option2 = document.getElementById("option-2");
+const option3 = document.getElementById("option-3");
+const option4 = document.getElementById("option-4");
+var timeLeft = document.getElementById("timeSec");
 var addOne = 0;
+var timer;
+let globalIndex = 0;
+var points = 0;
+var sec = 15;
 
 let questions = [
     {
@@ -49,22 +59,29 @@ let questions = [
     }
 ];
 
+viewScores.addEventListener('click', scoreBoard);
 startBtn.addEventListener('click', startFunc);
 restart1.addEventListener('click', startOver);
 restart2.addEventListener('click', startOver);
 next.addEventListener('click', nextQues);
 
 function startFunc(){
+    viewScores.classList.add("none");
     startScrn.classList.add("none");
     quizBox.classList.remove("none");
     startTimer();
     showQuestions(0);
 }
 
+function endFunc(){
+    clearInterval(timer);
+    quizBox.classList.add("none");
+    endScrn.classList.remove("none");
+}
+
 function startTimer(){
-    var sec = 15;
-    setInterval(()=>{
-        if (sec == 0){
+    timer = setInterval(()=>{
+        if (sec <= 0){
             clearInterval(timer);
             noTime();
             return;
@@ -80,14 +97,50 @@ function noTime(){
     quizBox.classList.add("none");
 }
 
+function chooseAnswer(choice, choiceText){
+    let choiceUser = choiceText;
+    let choiceCorrect = questions[globalIndex].answer
+    if (choiceUser == choiceCorrect){
+        choice.classList.add("correct");
+        option1.classList.add("noSelect");
+        option2.classList.add("noSelect");
+        option3.classList.add("noSelect");
+        option4.classList.add("noSelect");
+        points += 10;
+        sec += 10;
+        console.log(points);
+    } else {
+        choice.classList.add("wrong");
+        option1.classList.add("noSelect");
+        option2.classList.add("noSelect");
+        option3.classList.add("noSelect");
+        option4.classList.add("noSelect");
+        console.log("wrong");
+        sec -= 5;
+        console.log(points);
+    }
+}
+
 function startOver(){
     location.reload();
 }
 
 function nextQues(){
-    console.log("hello");
+    resetChoices();
     addOne++;
+    globalIndex++;
+    if (addOne > 3){
+        endFunc();
+        return;
+    }
     showQuestions(addOne);
+}
+
+function resetChoices(){
+    option1.classList.remove("correct", "wrong","noSelect");
+    option2.classList.remove("correct", "wrong","noSelect");
+    option3.classList.remove("correct", "wrong","noSelect");
+    option4.classList.remove("correct", "wrong","noSelect");
 }
 
 function showQuestions(index){
@@ -103,6 +156,11 @@ function showQuestions(index){
     option4.textContent = questions[index].option4;
 }
 
-// var chosenAnswer;
-
-// if (chosenAnswer
+function scoreBoard(){
+    startScrn.classList.add("none");
+    quizBox.classList.add("none");
+    outtaTime.classList.add("none");
+    endScrn.classList.add("none");
+    viewScores.classList.add("none");
+    scoreScrn.classList.remove("none");
+}
