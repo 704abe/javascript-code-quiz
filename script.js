@@ -23,7 +23,6 @@ var timer;
 let globalIndex = 0;
 var points = 0;
 var sec = 15;
-// const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
 
 let questions = [
     {
@@ -191,9 +190,6 @@ function saveScore(event){
     const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
     highScores.push(userScore);
     console.log(highScores);
-
-    // endScrn.classList.add("none");
-    // scoreScrn.classList.remove("none");
 
     highScores.sort((a,b)=>{
         return b.score - a.score;
