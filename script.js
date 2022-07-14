@@ -13,6 +13,7 @@ const option1 = document.getElementById("option-1");
 const option2 = document.getElementById("option-2");
 const option3 = document.getElementById("option-3");
 const option4 = document.getElementById("option-4");
+const score = document.getElementById("score");
 var timeLeft = document.getElementById("timeSec");
 var addOne = 0;
 var timer;
@@ -66,6 +67,7 @@ restart2.addEventListener('click', startOver);
 next.addEventListener('click', nextQues);
 
 function startFunc(){
+    next.classList.add("none");
     viewScores.classList.add("none");
     startScrn.classList.add("none");
     quizBox.classList.remove("none");
@@ -75,6 +77,7 @@ function startFunc(){
 
 function endFunc(){
     clearInterval(timer);
+    score.textContent = points + sec;
     quizBox.classList.add("none");
     endScrn.classList.remove("none");
 }
@@ -108,7 +111,6 @@ function chooseAnswer(choice, choiceText){
         option4.classList.add("noSelect");
         points += 10;
         sec += 10;
-        console.log(points);
     } else {
         choice.classList.add("wrong");
         option1.classList.add("noSelect");
@@ -117,8 +119,8 @@ function chooseAnswer(choice, choiceText){
         option4.classList.add("noSelect");
         console.log("wrong");
         sec -= 5;
-        console.log(points);
     }
+    next.classList.remove("none");
 }
 
 function startOver(){
@@ -126,6 +128,7 @@ function startOver(){
 }
 
 function nextQues(){
+    next.classList.add("none");
     resetChoices();
     addOne++;
     globalIndex++;
